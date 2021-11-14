@@ -40,7 +40,7 @@ function timerS () {
             }
         }
     }
-    setTimeout(timerS, 50) // callback each 1s
+    setTimeout(timerS, 1000) // callback each 1s
 }
 
 timerS();
