@@ -1,25 +1,23 @@
+// get the clock hands
 const hour = document.querySelector(".hour-hand");
 const min = document.querySelector(".min-hand");
 const second = document.querySelector(".second-hand"); 
-console.log(second)
-// let i = 0
-// setTimeout(function() {
-//     console.log(i++)
-// }, 1000);
 
+// set the var of the clock 
 let hh = 0
 let mm = 0
 let ss = 0
-let rotation = 90
-secondDeg = 90
-minDeg = 90
-hourDeg = 90
+let secondDeg = 90
+let minDeg = 90
+let hourDeg = 90
+
+// The hands start from deg 0, But the hands on the clock should start from 90deg
 second.style.transform += 'rotate('+secondDeg+'deg)'
-min.style.transform += 'rotate('+90+'deg)'
-hour.style.transform += 'rotate('+90+'deg)'
+min.style.transform += 'rotate('+minDeg+'deg)'
+hour.style.transform += 'rotate('+hourDeg+'deg)'
+
 function timerS () {
-    console.log(ss)
-    // rotation = rotation + 6
+    // each second the second hand sould rotat 6 deg
     secondDeg = secondDeg + 6
     second.style.transform = 'rotate('+secondDeg+'deg)'
     ss++
@@ -27,12 +25,14 @@ function timerS () {
         ss = 0
         mm++
         minDeg = minDeg + 6
+        // each min the second hand sould rotat 6 deg
         min.style.transform = 'rotate('+minDeg+'deg)'
+        hourDeg = hourDeg + 0.25
+        hour.style.transform = 'rotate('+hourDeg+'deg)'
         if (mm == 60) {
             hh++
             mm = 0
-            hourDeg = hourDeg + 15
-            hour.style.transform = 'rotate('+hourDeg+'deg)'
+            // each hour the second hand sould rotat 6 deg
             if ( hh == 24) {
                 hh = 0
                 mm = 0
@@ -40,8 +40,7 @@ function timerS () {
             }
         }
     }
-    console.log("this is min " + mm)
-    console.log("this is hour " + hh)
-    setTimeout(timerS, 1000) // callback
+    setTimeout(timerS, 50) // callback each 1s
 }
+
 timerS();

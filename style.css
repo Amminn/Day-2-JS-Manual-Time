@@ -53,6 +53,7 @@ html {
   background-color: #054e26;
   width: 33%;
   right: 50%;
+  transition: .5s;
 }
 
 .min-hand {
